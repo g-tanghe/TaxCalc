@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "851577940515",
+    "firebase_url": "https://tax-calc-8cf1d.firebaseio.com",
+    "project_id": "tax-calc-8cf1d",
+    "storage_bucket": "tax-calc-8cf1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:851577940515:android:7f1de03370802116",
+        "android_client_info": {
+          "package_name": "com.tanghe.garben.taxcalc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "851577940515-p95ri48t4oq16acmq6en3d4lefebc3kt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJDju1wvKT-ao1WxllaDnIle5F33UN-D8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
