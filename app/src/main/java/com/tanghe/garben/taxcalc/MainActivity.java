@@ -1,6 +1,5 @@
 package com.tanghe.garben.taxcalc;
 
-import android.inputmethodservice.Keyboard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -13,11 +12,11 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity {
-    public double amount = 0.0;
-    public double taxrate = 0.0;
+    public double amount;
+    public double taxrate;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) throws NumberFormatException {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -64,12 +63,17 @@ public class MainActivity extends AppCompatActivity {
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                amount = Double.parseDouble(editText.getText().toString());
-                if (amount > 100000) {
+                try {
+                    amount = Double.parseDouble(editText.getText().toString());
+                }
+                catch (NumberFormatException nfe) {
                     amount = 0.0;
-                    editText.setHint("Lower than 100,000.00");
+                }
+                if (amount > 1000000) {
+                    amount = 0.0;
+                    editText.setHint("Lower than 1,000,000.00");
                     editText.setText("");
-                } else {
+                } else if (amount >= 0 && amount < 1000000) {
                     editText.setHint("Type amount here");
                     textView2.setText(Double.toString(calcIncl(amount,6.00)) + " (" + Double.toString(calcTaxIncl(amount,6.00)) + ")");
                     textView4.setText(Double.toString(calcIncl(amount,21.00)) + " (" + Double.toString(calcTaxIncl(amount,21.00)) + ")");
@@ -82,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
                         textView10.setText("");
                         textView12.setText("");
                     }
+                } else {
+                    amount = 0.0;
+                    editText.setHint("Invalid, try again");
+                    editText.setText("");
                 }
                 return false;
             }
@@ -91,13 +99,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 editText2.setText("");
+                textView10.setText("");
+                textView12.setText("");
             }
         });
 
         editText2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                taxrate = Double.parseDouble(editText2.getText().toString());
+                try {
+                    taxrate = Double.parseDouble(editText2.getText().toString());
+                }
+                catch (NumberFormatException nfe) {
+                    taxrate = 0.0;
+                }
                 textView9.setText("Incl. " + taxrate + " %");
                 textView11.setText("Excl. " + taxrate + " %");
                 textView10.setText(Double.toString(calcIncl(amount,taxrate)) + " (" + Double.toString(calcTaxIncl(amount,taxrate)) + ")");
