@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "851577940515-heb0ran5pi6ehgb50s5ftterank9mb1c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tanghe.garben.taxcalc",
+            "certificate_hash": "3E2B62D2E1D103E877273165A3A801792AE74F13"
+          }
+        },
+        {
           "client_id": "851577940515-p95ri48t4oq16acmq6en3d4lefebc3kt.apps.googleusercontent.com",
           "client_type": 3
         }

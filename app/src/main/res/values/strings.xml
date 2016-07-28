@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Tax Calc</string>
-    <string name="_6">+ 6 %</string>
-    <string name="_21">+ 21 %</string>
-    <string name="banner_ad_unit_id">ca-app-pub-4741956938194475/7017405941</string>
+    <string name="app_id">ca-app-pub-4741956938194475~4063939544</string>
+    <string name="banner">ca-app-pub-4741956938194475/6093585947</string>
+    <string name="banner2">ca-app-pub-4741956938194475/1663386346</string>
+    <string name="test_device_id">62DB073E067B8944A650AE9CC2BD9368</string>
 </resources>

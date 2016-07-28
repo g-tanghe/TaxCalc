@@ -2,14 +2,17 @@ package com.tanghe.garben.taxcalc;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-
 import com.google.android.gms.ads.MobileAds;
+
+import com.google.firebase.crash.FirebaseCrash;
 
 public class MainActivity extends AppCompatActivity {
     public double amount;
@@ -23,8 +26,16 @@ public class MainActivity extends AppCompatActivity {
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-4741956938194475~4063939544");
 
         AdView mAdView = (AdView) findViewById(R.id.adView);
+        //AdRequest adRequest = new AdRequest.Builder().addTestDevice("62DB073E067B8944A650AE9CC2BD9368").build();
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        AdView mAdView2 = (AdView) findViewById(R.id.adView2);
+        //AdRequest adRequest2 = new AdRequest.Builder().addTestDevice("62DB073E067B8944A650AE9CC2BD9368").build();
+        AdRequest adRequest2 = new AdRequest.Builder().build();
+        mAdView2.loadAd(adRequest2);
+
+        //FirebaseCrash.report(new Exception("My first Android non-fatal error"));
 
         final EditText editText = (EditText) findViewById(R.id.editText);
         final TextView textView2 = (TextView) findViewById(R.id.textView2);
