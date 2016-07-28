@@ -27,21 +27,11 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         final EditText editText = (EditText) findViewById(R.id.editText);
-        editText.setHint("Type amount here");
-        final TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setText("Incl. 6 %");
         final TextView textView2 = (TextView) findViewById(R.id.textView2);
-        TextView textView3 = (TextView) findViewById(R.id.textView3);
-        textView3.setText("Incl. 21 %");
         final TextView textView4 = (TextView) findViewById(R.id.textView4);
-        TextView textView5 = (TextView) findViewById(R.id.textView5);
-        textView5.setText("Excl. 6 %");
         final TextView textView6 = (TextView) findViewById(R.id.textView6);
-        TextView textView7 = (TextView) findViewById(R.id.textView7);
-        textView7.setText("Excl. 21 %");
         final TextView textView8 = (TextView) findViewById(R.id.textView8);
         final EditText editText2 = (EditText) findViewById(R.id.editText2);
-        editText2.setHint("Type taxrate here");
         final TextView textView9 = (TextView) findViewById(R.id.textView9);
         final TextView textView10 = (TextView) findViewById(R.id.textView10);
         final TextView textView11 = (TextView) findViewById(R.id.textView11);
@@ -50,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                amount = 0.0;
                 editText.setText("");
                 textView2.setText("");
                 textView4.setText("");
@@ -65,31 +56,37 @@ public class MainActivity extends AppCompatActivity {
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 try {
                     amount = Double.parseDouble(editText.getText().toString());
+                    if (amount > 1000000) {
+                        amount = 0.0;
+                        editText.setHint("Lower than 1,000,000");
+                        editText.setText("");
+                        textView2.setText("");
+                        textView4.setText("");
+                        textView6.setText("");
+                        textView8.setText("");
+                        textView10.setText("");
+                        textView12.setText("");
+                    } else {
+                        editText.setHint("Type amount here");
+                        editText.setText(Double.toString(round2decimals(amount)));
+                        textView2.setText(calcIncl(amount,6.00) + " (" + calcTaxIncl(amount,6.00) + ")");
+                        textView4.setText(calcIncl(amount,21.00) + " (" + calcTaxIncl(amount,21.00) + ")");
+                        textView6.setText(calcExcl(amount,6.00) + " (" + calcTaxExcl(amount,6.00) + ")");
+                        textView8.setText(calcExcl(amount,21.00) + " (" + calcTaxExcl(amount,21.00) + ")");
+                        if (taxrate != 0.0) {
+                            textView10.setText(calcIncl(amount,taxrate) + " (" + calcTaxIncl(amount,taxrate) + ")");
+                            textView12.setText(calcExcl(amount,taxrate) + " (" + calcTaxExcl(amount,taxrate) + ")");
+                        }
+                    }
                 }
                 catch (NumberFormatException nfe) {
                     amount = 0.0;
-                }
-                if (amount > 1000000) {
-                    amount = 0.0;
-                    editText.setHint("Lower than 1,000,000.00");
-                    editText.setText("");
-                } else if (amount >= 0 && amount < 1000000) {
-                    editText.setHint("Type amount here");
-                    textView2.setText(Double.toString(calcIncl(amount,6.00)) + " (" + Double.toString(calcTaxIncl(amount,6.00)) + ")");
-                    textView4.setText(Double.toString(calcIncl(amount,21.00)) + " (" + Double.toString(calcTaxIncl(amount,21.00)) + ")");
-                    textView6.setText(Double.toString(calcExcl(amount,6.00)) + " (" + Double.toString(calcTaxExcl(amount,6.00)) + ")");
-                    textView8.setText(Double.toString(calcExcl(amount,21.00)) + " (" + Double.toString(calcTaxExcl(amount,21.00)) + ")");
-                    if (taxrate!=0.0) {
-                        textView10.setText(Double.toString(calcIncl(amount,taxrate)));
-                        textView12.setText(Double.toString(calcExcl(amount,taxrate)));
-                    } else {
-                        textView10.setText("");
-                        textView12.setText("");
-                    }
-                } else {
-                    amount = 0.0;
                     editText.setHint("Invalid, try again");
                     editText.setText("");
+                    textView2.setText("");
+                    textView4.setText("");
+                    textView6.setText("");
+                    textView8.setText("");
                 }
                 return false;
             }
@@ -98,8 +95,11 @@ public class MainActivity extends AppCompatActivity {
         editText2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                taxrate = 0.0;
                 editText2.setText("");
+                textView9.setText("");
                 textView10.setText("");
+                textView11.setText("");
                 textView12.setText("");
             }
         });
@@ -109,36 +109,58 @@ public class MainActivity extends AppCompatActivity {
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 try {
                     taxrate = Double.parseDouble(editText2.getText().toString());
+                    if (taxrate > 1000) {
+                        editText2.setHint("Lower than 1,000");
+                        editText2.setText("");
+                        textView9.setText("");
+                        textView10.setText("");
+                        textView11.setText("");
+                        textView12.setText("");
+                    } else {
+                        editText2.setHint("Type taxrate here");
+                        editText2.setText(Double.toString(round2decimals(taxrate)));
+                        textView9.setText("Incl. " + taxrate + " %");
+                        textView11.setText("Excl. " + taxrate + " %");
+                        if (amount != 0.0) {
+                            textView10.setText(calcIncl(amount, taxrate) + " (" + calcTaxIncl(amount, taxrate) + ")");
+                            textView12.setText(calcExcl(amount, taxrate) + " (" + calcTaxExcl(amount, taxrate) + ")");
+                        } else {
+                            textView10.setText("");
+                            textView12.setText("");
+                        }
+                    }
                 }
                 catch (NumberFormatException nfe) {
                     taxrate = 0.0;
+                    editText2.setHint("Invalid, try again");
+                    editText2.setText("");
+                    textView9.setText("");
+                    textView10.setText("");
+                    textView11.setText("");
+                    textView12.setText("");
                 }
-                textView9.setText("Incl. " + taxrate + " %");
-                textView11.setText("Excl. " + taxrate + " %");
-                textView10.setText(Double.toString(calcIncl(amount,taxrate)) + " (" + Double.toString(calcTaxIncl(amount,taxrate)) + ")");
-                textView12.setText(Double.toString(calcExcl(amount,taxrate)) + " (" + Double.toString(calcTaxExcl(amount,taxrate)) + ")");
                 return false;
             }
         });
     }
 
     public double round2decimals(double d) {
-        return (Math.round(d*100)/100.00);
+        return Math.round(d*100)/100.0;
     }
 
-    public double calcIncl(double amount, double taxrate) {
-        return round2decimals(amount*(1+taxrate/100.00));
+    public String calcIncl(double amount, double taxrate) {
+        return Double.toString(round2decimals(amount*(1+taxrate/100.0)));
     }
 
-    public double calcExcl(double amount,double taxrate) {
-        return round2decimals(amount/(1+taxrate/100.00));
+    public String calcExcl(double amount,double taxrate) {
+        return Double.toString(round2decimals(amount/(1+taxrate/100.0)));
     }
 
-    public double calcTaxIncl(double amount, double taxrate) {
-        return round2decimals(amount*taxrate/100.00);
+    public String calcTaxIncl(double amount, double taxrate) {
+        return Double.toString(round2decimals(amount*taxrate/100.0));
     }
 
-    public double calcTaxExcl(double amount, double taxrate) {
-        return round2decimals(calcExcl(amount,taxrate)*taxrate/100.00);
+    public String calcTaxExcl(double amount, double taxrate) {
+        return Double.toString(round2decimals(amount/(1+taxrate/100.0)*taxrate/100.0));
     }
 }

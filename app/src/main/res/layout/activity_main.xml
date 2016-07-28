@@ -10,241 +10,253 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     tools:context="com.tanghe.garben.taxcalc.MainActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true">
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView" >
 
-        <EditText
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:textSize="32dp"
-            android:textAlignment="center"
-            android:background="#FFFFFF"
-            android:elevation="2dp"
-            android:textColorHint="#78909C"
-            android:layout_gravity="center" />
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="16dp"></RelativeLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="2dp"
-            android:background="#FFFFFF">
-
-            <TextView
-                android:layout_width="fill_parent"
+            <EditText
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView"
-                android:layout_margin="8dp"
-                android:digits="2"
-                android:layout_weight="20"
-                android:textColor="#000000"
-                android:textSize="16dp"
-                android:longClickable="true" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView2"
-                android:layout_margin="8dp"
-                android:digits="2"
-                android:layout_weight="10"
-                android:textColor="#000000"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText"
+                android:textSize="32dp"
                 android:textAlignment="center"
-                android:textSize="24dp" />
+                android:background="#FFFFFF"
+                android:elevation="2dp"
+                android:textColorHint="#78909C"
+                android:layout_gravity="center"
+                android:hint="Type amount here" />
 
-        </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="16dp"></RelativeLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="2dp"
-            android:background="#FFFFFF">
-
-            <TextView
-                android:layout_width="fill_parent"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView3"
-                android:layout_margin="8dp"
-                android:digits="2"
-                android:layout_weight="10"
-                android:textColor="#000000"
-                android:textSize="16dp" />
+                android:elevation="2dp"
+                android:background="#FFFFFF">
 
-            <TextView
-                android:layout_width="fill_parent"
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView"
+                    android:layout_margin="8dp"
+                    android:digits="2"
+                    android:layout_weight="20"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:longClickable="true"
+                    android:text="Incl. 6 %" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2"
+                    android:layout_margin="8dp"
+                    android:digits="2"
+                    android:layout_weight="10"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:textSize="24dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView4"
-                android:layout_margin="8dp"
-                android:contextClickable="false"
-                android:digits="2"
-                android:layout_weight="5"
-                android:textColor="#000000"
-                android:textAlignment="center"
-                android:textSize="24dp" />
+                android:elevation="2dp"
+                android:background="#FFFFFF">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView3"
+                    android:layout_margin="8dp"
+                    android:digits="2"
+                    android:layout_weight="10"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:text="Incl. 21 %" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="8dp"></RelativeLayout>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView4"
+                    android:layout_margin="8dp"
+                    android:contextClickable="false"
+                    android:digits="2"
+                    android:layout_weight="5"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:textSize="24dp" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="2dp"
-            android:background="#FFFFFF">
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="fill_parent"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="8dp"></RelativeLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView5"
-                android:layout_margin="8dp"
-                android:digits="2"
-                android:layout_weight="10"
-                android:textColor="#000000"
-                android:textSize="16dp" />
+                android:elevation="2dp"
+                android:background="#FFFFFF">
 
-            <TextView
-                android:layout_width="fill_parent"
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView5"
+                    android:layout_margin="8dp"
+                    android:digits="2"
+                    android:layout_weight="10"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:text="Excl. 6 %" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView6"
+                    android:layout_margin="8dp"
+                    android:digits="2"
+                    android:layout_weight="5"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:textSize="24dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView6"
-                android:layout_margin="8dp"
-                android:digits="2"
-                android:layout_weight="5"
-                android:textColor="#000000"
-                android:textAlignment="center"
-                android:textSize="24dp" />
-        </LinearLayout>
+                android:elevation="2dp"
+                android:background="#FFFFFF">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="2dp"
-            android:background="#FFFFFF">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView7"
+                    android:layout_margin="8dp"
+                    android:digits="2"
+                    android:layout_weight="10"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:text="Excl. 21 %" />
 
-            <TextView
-                android:layout_width="fill_parent"
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView8"
+                    android:layout_margin="8dp"
+                    android:digits="2"
+                    android:layout_weight="5"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:textSize="24dp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="8dp"></RelativeLayout>
+
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView7"
-                android:layout_margin="8dp"
-                android:digits="2"
-                android:layout_weight="10"
-                android:textColor="#000000"
-                android:textSize="16dp" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView8"
-                android:layout_margin="8dp"
-                android:digits="2"
-                android:layout_weight="5"
-                android:textColor="#000000"
-                android:textAlignment="center"
-                android:textSize="24dp" />
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="8dp"></RelativeLayout>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/editText2"
-            android:background="#FFFFFF"
-            android:elevation="2dp"
-            android:textSize="32dp"
-            android:textColor="#78909C"
-            android:textColorHint="#78909C"
-            android:textAlignment="center" />
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="2dp"
-            android:background="#FFFFFF"
-            android:baselineAligned="false">
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView9"
-                android:layout_weight="10"
-                android:layout_margin="8dp"
-                android:textSize="16dp"
-                android:textColor="#78909C" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView10"
-                android:layout_weight="5"
-                android:layout_margin="8dp"
-                android:textSize="24dp"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText2"
+                android:background="#FFFFFF"
+                android:elevation="2dp"
+                android:textSize="32dp"
                 android:textColor="#78909C"
-                android:textAlignment="center" />
-        </LinearLayout>
+                android:textColorHint="#78909C"
+                android:textAlignment="center"
+                android:hint="Type taxrate here" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="2dp"
-            android:background="#FFFFFF">
-
-            <TextView
-                android:layout_width="fill_parent"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView11"
-                android:layout_weight="10"
-                android:layout_margin="8dp"
-                android:textSize="16dp"
-                android:textColor="#78909C" />
+                android:elevation="2dp"
+                android:background="#FFFFFF"
+                android:baselineAligned="false">
 
-            <TextView
-                android:layout_width="fill_parent"
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView9"
+                    android:layout_weight="10"
+                    android:layout_margin="8dp"
+                    android:textSize="16dp"
+                    android:textColor="#78909C" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView10"
+                    android:layout_weight="5"
+                    android:layout_margin="8dp"
+                    android:textSize="24dp"
+                    android:textColor="#78909C"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView12"
-                android:layout_weight="5"
-                android:layout_margin="8dp"
-                android:textSize="24dp"
-                android:textColor="#78909C"
-                android:textAlignment="center" />
+                android:elevation="2dp"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView11"
+                    android:layout_weight="10"
+                    android:layout_margin="8dp"
+                    android:textSize="16dp"
+                    android:textColor="#78909C" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView12"
+                    android:layout_weight="5"
+                    android:layout_margin="8dp"
+                    android:textSize="24dp"
+                    android:textColor="#78909C"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="8dp"></RelativeLayout>
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/banner_ad_unit_id">
+            </com.google.android.gms.ads.AdView>
+
         </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="8dp"></RelativeLayout>
-
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/banner_ad_unit_id">
-        </com.google.android.gms.ads.AdView>
-
-    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
