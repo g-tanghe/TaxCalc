@@ -1,10 +1,12 @@
 package com.tanghe.garben.taxcalc;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -99,6 +101,14 @@ public class MainActivity extends AppCompatActivity {
                     textView6.setText("");
                     textView8.setText("");
                 }
+
+                editText.clearFocus();
+                View view = getCurrentFocus();
+                if (view != null) {
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
+
                 return false;
             }
         });
@@ -150,6 +160,14 @@ public class MainActivity extends AppCompatActivity {
                     textView11.setText("");
                     textView12.setText("");
                 }
+
+                editText2.clearFocus();
+                View view = getCurrentFocus();
+                if (view != null) {
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
+
                 return false;
             }
         });
