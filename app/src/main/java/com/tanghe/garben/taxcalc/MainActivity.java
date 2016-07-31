@@ -14,8 +14,6 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-import com.google.firebase.crash.FirebaseCrash;
-
 public class MainActivity extends AppCompatActivity {
     public double amount;
     public double taxrate;
@@ -31,11 +29,6 @@ public class MainActivity extends AppCompatActivity {
         //AdRequest adRequest = new AdRequest.Builder().addTestDevice("62DB073E067B8944A650AE9CC2BD9368").build();
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
-        AdView mAdView2 = (AdView) findViewById(R.id.adView2);
-        //AdRequest adRequest2 = new AdRequest.Builder().addTestDevice("62DB073E067B8944A650AE9CC2BD9368").build();
-        AdRequest adRequest2 = new AdRequest.Builder().build();
-        mAdView2.loadAd(adRequest2);
 
         //FirebaseCrash.report(new Exception("My first Android non-fatal error"));
 

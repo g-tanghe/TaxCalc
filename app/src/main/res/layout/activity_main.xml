@@ -191,21 +191,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="8dp"></RelativeLayout>
 
-            <com.google.android.gms.ads.AdView
-                android:id="@+id/adView"
-                android:layout_width="320dp"
-                android:layout_height="50dp"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/banner"
-                android:layout_gravity="center"
-                android:background="#FFFFFF"
-                android:elevation="2dp">
-            </com.google.android.gms.ads.AdView>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="8dp"></RelativeLayout>
-
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -289,11 +274,11 @@
                 android:layout_height="8dp"></RelativeLayout>
 
             <com.google.android.gms.ads.AdView
-                android:id="@+id/adView2"
+                android:id="@+id/adView"
                 android:layout_width="320dp"
                 android:layout_height="50dp"
                 ads:adSize="BANNER"
-                ads:adUnitId="@string/banner2"
+                ads:adUnitId="@string/banner"
                 android:layout_gravity="center"
                 android:background="#FFFFFF"
                 android:elevation="2dp">
